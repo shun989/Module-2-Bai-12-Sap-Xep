@@ -23,3 +23,24 @@ function swapPositions($newList, $left, $right)
 
 $list = [1, 9, 4.5, 6.6, 5.7, -4.5];
 echo implode(', ', selectionRsort($list));
+
+echo "<br/>";
+
+function selectionSort($list)
+{
+    for ($i = 0; $i < count($list); $i++) {
+        for ($j = $i; $j < count($list); $j++) {
+            if ($list[$j] < $list[$i]) {
+                $temp = $list[$j];
+                $list[$j] = $list[$i];
+                $list[$i] = $temp;
+            }
+        }
+    }
+    return $list;
+}
+
+$list = range(1, 100);
+shuffle($list);
+$list = array_slice($list, 0, 10);
+echo implode(', ', selectionSort($list));
